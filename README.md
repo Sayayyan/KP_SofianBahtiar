@@ -46,7 +46,9 @@ Aplikasi ini memiliki pembagian hak akses berdasarkan peran pengguna:
 
 ## Screenshot dan Penjelasan Fitur per Hak Akses
 
-Galeri berikut memperlihatkan tampilan form asli aplikasi untuk **Admin, Frontdesk, Gudang, Mekanik, dan Kasir**. Gunakan tautan berikut untuk langsung menuju hak akses yang ingin dilihat:
+Galeri berikut memperlihatkan tampilan form asli aplikasi untuk **Admin, Frontdesk, Gudang, Mekanik, dan Kasir**. Screenshot diambil pada ukuran bawaan masing-masing form sesuai Windows Forms Designer, tanpa memperbesar jendela atau mengubah tata letak kontrol, sehingga logo tetap berada di kanan atas sesuai desain. Hanya area antarmuka aplikasi yang diambil, tanpa bingkai judul Windows.
+
+Gunakan tautan berikut untuk langsung menuju hak akses yang ingin dilihat:
 
 - [Admin — pengelolaan dan pemantauan bengkel](#1-admin)
 - [Frontdesk — penerimaan dan monitoring kendaraan](#2-frontdesk)
