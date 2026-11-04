@@ -46,7 +46,7 @@ Aplikasi ini memiliki pembagian hak akses berdasarkan peran pengguna:
 
 ## Screenshot dan Penjelasan Fitur per Hak Akses
 
-Galeri berikut memperlihatkan tampilan form asli aplikasi untuk **Admin, Frontdesk, Gudang, Mekanik, dan Kasir**. Screenshot diambil pada ukuran bawaan masing-masing form sesuai Windows Forms Designer, tanpa memperbesar jendela atau mengubah tata letak kontrol, sehingga logo tetap berada di kanan atas sesuai desain. Hanya area antarmuka aplikasi yang diambil, tanpa bingkai judul Windows.
+BengkelYann menyediakan fitur sesuai tanggung jawab **Admin, Frontdesk, Gudang, Mekanik, dan Kasir**. Setiap hak akses memiliki menu untuk mendukung alur operasional bengkel, mulai dari penerimaan kendaraan hingga pembayaran dan pelaporan.
 
 Gunakan tautan berikut untuk langsung menuju hak akses yang ingin dilihat:
 
@@ -55,8 +55,6 @@ Gunakan tautan berikut untuk langsung menuju hak akses yang ingin dilihat:
 - [Gudang — persediaan dan permintaan sparepart](#3-gudang)
 - [Mekanik — penugasan dan detail servis](#4-mekanik)
 - [Kasir — penagihan dan riwayat pembayaran](#5-kasir)
-
-> Screenshot menggambarkan data yang tersedia saat pengambilan, bukan data yang wajib ada pada instalasi baru. Daftar Invoice dan Permintaan Sparepart terlihat kosong karena belum ada WO siap tagih atau permintaan yang sedang diproses. Klik gambar untuk melihatnya dalam ukuran penuh. Semua gambar disimpan di [`docs/screenshots/`](docs/screenshots/).
 
 ### 1. Admin
 
@@ -113,7 +111,7 @@ Admin menangani master data, pengaturan pengguna, serta pemantauan operasional d
 
 - Menyediakan pilihan **Omzet Harian, Omzet Bulanan, Jasa Terlaris, Sparepart Terlaris, dan Performa Mekanik**.
 - Kontrol **Dari** dan **Sampai** menentukan periode data yang digunakan ketika laporan dimuat. Saat dibuka, periode awal adalah bulan berjalan sampai hari ini.
-- Contoh pada screenshot adalah **Omzet Harian**: setiap baris berisi tanggal, jumlah transaksi, dan total omzet pada tanggal tersebut.
+- Laporan **Omzet Harian** menampilkan tanggal, jumlah transaksi, dan total omzet pada setiap tanggal.
 - Laporan jasa/sparepart membantu melihat pemakaian layanan dan barang, sedangkan performa mekanik merangkum jumlah WO selesai menurut mekaniknya.
 
 ### 2. Frontdesk
@@ -168,7 +166,7 @@ Staf gudang mencatat penerimaan barang, memantau ketersediaan stok, dan menindak
 - Pencarian menggunakan **nomor WO atau nama mekanik**, sedangkan **Lihat Detail** membuka rincian item yang diminta.
 - **Approve** memeriksa ketersediaan seluruh item; jika stok mencukupi, permintaan diterima dan stok dikurangi. Persetujuan dibatalkan apabila ada item dengan stok tidak mencukupi.
 - **Tolak** mewajibkan alasan agar mekanik mengetahui penyebab penolakan. Ketika tidak ada permintaan tertunda lagi, WO yang menunggu sparepart dapat kembali berstatus `Dikerjakan`.
-- Pada screenshot, tabel kosong karena tidak ada permintaan berstatus `Diproses` pada saat pengambilan.
+- Daftar hanya menampilkan permintaan berstatus `Diproses`; permintaan yang sudah ditindaklanjuti tidak masuk ke antrean ini.
 
 #### Stok Sparepart
 
@@ -208,7 +206,7 @@ Mekanik mengakses pekerjaan yang ditugaskan kepadanya, mencatat hasil pemeriksaa
 - Kolom **Temuan** digunakan untuk mencatat hasil pemeriksaan. Bagian **Jasa Dikerjakan** digunakan untuk memilih layanan yang dilakukan pada kendaraan.
 - Bagian **Sparepart Diminta** menampilkan item, jumlah, status permintaan, dan alasan penolakan apabila permintaan ditolak gudang.
 - **Simpan** mencatat perubahan detail dan status pengerjaan. Permintaan sparepart baru disimpan sebagai `Diproses` dan membuat WO masuk status `Menunggu sparepart`.
-- Tombol **Back** mengembalikan mekanik ke daftar job. Screenshot memperlihatkan contoh permintaan yang telah ditolak beserta alasannya.
+- Tombol **Back** mengembalikan mekanik ke daftar job.
 
 ### 5. Kasir
 
@@ -222,7 +220,7 @@ Kasir menangani penagihan WO selesai, penerimaan pembayaran, pencetakan bukti tr
 - Memilih WO menampilkan rincian jasa dan sparepart, termasuk jenis item, nama, kuantitas, harga, serta total tagihan. Hanya sparepart yang sudah diterima/disetujui yang dimasukkan ke tagihan.
 - **Proses Bayar** membuka dialog pembayaran dengan metode **Tunai atau Qris**, jumlah uang diterima, dan perhitungan kembalian. Pembayaran dengan jumlah kurang dari total ditolak.
 - Pembayaran yang berhasil dicatat mengubah status WO menjadi `Sudah dibayar` dan membuka pratinjau struk untuk dicetak.
-- Screenshot menunjukkan kondisi ketika belum ada WO berstatus `Selesai`, sehingga daftar dan rincian tagihan masih kosong.
+- Apabila belum ada WO berstatus `Selesai`, daftar siap tagih belum berisi pekerjaan yang dapat diproses pembayarannya.
 
 #### Riwayat Transaksi dan Ekspor PDF
 
@@ -230,7 +228,7 @@ Kasir menangani penagihan WO selesai, penerimaan pembayaran, pencetakan bukti tr
 
 - Tentukan tanggal **Dari** dan **Sampai**, lalu pilih **Tampilkan** untuk memuat transaksi pada periode tersebut. Tanggal awal tidak boleh melewati tanggal akhir.
 - Tabel menampilkan nomor WO, metode pembayaran, total bayar, uang yang diberikan, kembalian, nama kasir, dan waktu transaksi.
-- **Total pendapatan** menjumlahkan transaksi yang tampil, mencakup seluruh metode pembayaran dalam periode tersebut. Contoh screenshot memakai periode September–November 2026 agar riwayat yang tersedia terlihat.
+- **Total pendapatan** menjumlahkan transaksi yang tampil, mencakup seluruh metode pembayaran dalam periode yang dipilih.
 - Tombol **Export PDF** menghasilkan laporan berisi identitas bengkel, periode, rincian transaksi, total pendapatan, dan nama pengguna pengekspor dengan ruang tanda tangan.
 
 ## Bahasa Pemrograman
