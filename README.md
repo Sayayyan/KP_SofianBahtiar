@@ -25,7 +25,7 @@ Aplikasi ini memiliki pembagian hak akses berdasarkan peran pengguna:
 
 | Peran | Tanggung Jawab |
 |---|---|
-| **Admin** | Mengelola master data, pengguna, laporan, dan audit log |
+| **Admin** | Mengelola master data, pengguna, laporan, dan log aktivitas |
 | **Frontdesk** | Mendata customer/kendaraan, membuat Work Order, memonitor dan menyerahkan kendaraan |
 | **Gudang** | Mengelola stok sparepart, barang masuk, dan permintaan sparepart |
 | **Mekanik** | Melihat job yang ditugaskan, mengisi detail servis, dan mengajukan permintaan sparepart |
@@ -42,7 +42,7 @@ Aplikasi ini memiliki pembagian hak akses berdasarkan peran pengguna:
 - Detail servis dan perhitungan biaya jasa serta sparepart.
 - Pembayaran, cetak struk, dan pencatatan transaksi.
 - Riwayat transaksi dengan filter periode dan ekspor laporan PDF.
-- Audit log untuk mencatat aktivitas pengguna (login, logout, tambah, edit, hapus, pembayaran, serah terima, permintaan sparepart, ekspor PDF, dan lainnya).
+- Log aktivitas untuk mencatat aktivitas pengguna (login, logout, tambah, edit, hapus, pembayaran, serah terima, permintaan sparepart, ekspor PDF, dan lainnya).
 
 ## Screenshot dan Penjelasan Fitur per Hak Akses
 
@@ -98,7 +98,7 @@ Admin menangani master data, pengaturan pengguna, serta pemantauan operasional d
 
 #### Log Aktivitas
 
-![Log Aktivitas Admin dengan identitas pengguna, aksi, waktu, dan filter tanggal](docs/screenshots/admin-log-aktivitas.png)
+![Log Aktivitas Admin dengan identitas pengguna, aksi, waktu, dan filter tanggal](docs/screenshots/admin-log-aktivitas.jpeg)
 
 - Menampilkan jejak aktivitas beserta username, nama lengkap, role, aksi, dan waktu kejadian; urutan terbaru ditampilkan terlebih dahulu.
 - Filter tanggal membantu menelusuri aktivitas pada periode tertentu. Saat pertama dibuka, daftar memuat seluruh log yang tersedia.
@@ -261,7 +261,7 @@ Kerja_Projek/
 ├── docs/
 │   └── screenshots/            # Screenshot fitur per hak akses
 └── Kerja_Projek/
-    ├── Admin/                  # Master data, dashboard, laporan, audit log
+    ├── Admin/                  # Master data, dashboard, laporan, log aktivitas
     ├── Fondasi/                # Form login dan menu utama per role
     ├── Frontdesk/              # Customer, kendaraan, dan Work Order
     ├── Gudang/                 # Stok, barang masuk, permintaan sparepart
@@ -270,7 +270,7 @@ Kerja_Projek/
     ├── Mekanik/                # Job mekanik dan detail servis
     ├── Properties/             # Resource, pengaturan, dan logo
     ├── Assets/                 # Aset gambar/logo
-    ├── koneksi.cs              # Koneksi database dan helper audit log
+    ├── koneksi.cs              # Koneksi database dan helper log aktivitas
     ├── usersession.cs          # Sesi pengguna yang sedang login
     └── hashpassword.cs         # Helper hash password
 ```
